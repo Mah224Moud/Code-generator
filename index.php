@@ -32,7 +32,7 @@
 
         $lines = explode("\n", $classDefinition);
 
-        $attributs = [];
+        $attributes = [];
         $construct = [];
         foreach ($lines as $line) {
             $line = trim($line);
@@ -45,7 +45,7 @@
                     $scope = $decomposition[0];
                     $type = $decomposition[1];
                     $name = str_replace("$", "", $decomposition[2]);
-                    $attributs[] = [
+                    $attributes[] = [
                         "scope" => $scope,
                         "type" => $type,
                         "name" => $name
@@ -74,13 +74,13 @@
                     {
                     <br>
 
-                    <!-- Attributs -->
-                    <?php foreach ($attributs as $attribut): ?>
+                    <!-- Attrbibutes -->
+                    <?php foreach ($attributes as $attribute): ?>
                         &nbsp;&nbsp;&nbsp;
 
-                        <?= $attribut["scope"] ?>
-                        <?= $attribut["type"] ?>
-                        <?= "$" . $attribut["name"] ?>; <br>
+                        <?= $attribute["scope"] ?>
+                        <?= $attribute["type"] ?>
+                        <?= "$" . $attribute["name"] ?>; <br>
                     <?php endforeach ?>
                     <br>
                     &nbsp;&nbsp;&nbsp;
@@ -92,11 +92,11 @@
                     <br>
                     &nbsp;&nbsp;&nbsp;&nbsp;{<br>
 
-                    <?php foreach ($attributs as $attribut): ?>
+                    <?php foreach ($attributes as $attribute): ?>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                        <?= "\$this->" . $attribut["name"] ?> =
-                        <?= "$" . $attribut["name"] . ";" ?> <br>
+                        <?= "\$this->" . $attribute["name"] ?> =
+                        <?= "$" . $attribute["name"] . ";" ?> <br>
                     <?php endforeach ?>
 
                     &nbsp;&nbsp;&nbsp;&nbsp;}
@@ -104,26 +104,26 @@
                     <br><br><br>
 
                     <!-- Get and set -->
-                    <?php foreach ($attributs as $attribut): ?>
+                    <?php foreach ($attributes as $attribute): ?>
                         &nbsp;&nbsp;&nbsp;
 
-                        <?= "public function get" . ucfirst($attribut["name"]) . "()" ?>
+                        <?= "public function get" . ucfirst($attribute["name"]) . "()" ?>
                         <br>
                         &nbsp;&nbsp;&nbsp;&nbsp;{<br>
 
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <?= "return \$this->" . $attribut["name"] ?>; <br>
+                        <?= "return \$this->" . $attribute["name"] ?>; <br>
                         &nbsp;&nbsp;&nbsp;&nbsp;}
                         <br>
 
                         &nbsp;&nbsp;&nbsp;
 
-                        <?= "public function set" . ucfirst($attribut["name"]) . "(" . $attribut["type"] . " \$" . $attribut["name"] . ")" ?>
+                        <?= "public function set" . ucfirst($attribute["name"]) . "(" . $attribute["type"] . " \$" . $attribute["name"] . ")" ?>
                         <br>
                         &nbsp;&nbsp;&nbsp;&nbsp;{<br>
 
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <?= "\$this->" . $attribut["name"] . " = \$" . $attribut["name"] ?>; <br>
+                        <?= "\$this->" . $attribute["name"] . " = \$" . $attribute["name"] ?>; <br>
                         &nbsp;&nbsp;&nbsp;&nbsp;}
                         <br><br>
 
