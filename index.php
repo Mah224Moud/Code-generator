@@ -61,7 +61,7 @@
     ?>
 
     <?php if (isset($className)): ?>
-        <h2 class="text-center text-success">Generated Code for the Class
+        <h2 class="text-center text-success m-2">Generated Code for the Class
             <?= $className[1] ?>
         </h2>
 
