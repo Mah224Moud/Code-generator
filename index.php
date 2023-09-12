@@ -108,7 +108,7 @@
                     <?php foreach ($attributes as $attribute): ?>
                         &nbsp;&nbsp;&nbsp;
 
-                        <?= "public function get" . ucfirst($attribute["name"]) . "()" ?>
+                        <?= "public function get" . ucfirst($attribute["name"]) . "(): " . $attribute["type"] ?>
                         <br>
                         &nbsp;&nbsp;&nbsp;&nbsp;{<br>
 
@@ -119,7 +119,7 @@
 
                         &nbsp;&nbsp;&nbsp;
 
-                        <?= "public function set" . ucfirst($attribute["name"]) . "(" . $attribute["type"] . " \$" . $attribute["name"] . ")" ?>
+                        <?= "public function set" . ucfirst($attribute["name"]) . "(" . $attribute["type"] . " \$" . $attribute["name"] . "): void" ?>
                         <br>
                         &nbsp;&nbsp;&nbsp;&nbsp;{<br>
 
